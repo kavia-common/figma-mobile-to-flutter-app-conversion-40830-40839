@@ -1,0 +1,267 @@
+:root{
+  /* Optimized palette and spacing - based on YAML (color_faf7ef) and assets */
+  --bg: #FAF7EF;
+  --text: #1E222B;
+  --muted: #6B7280;
+  --hint: #B2BBCE;
+  --primary: #2A4BA0;
+  --accent: #F9B023;
+  --surface: #FFFFFF;
+
+  --radius-card: 24px;
+  --radius-pill: 18px;
+
+  --shadow-1: 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-2: 0 16px 40px rgba(0,0,0,0.15);
+
+  /* Figma artboard size from YAML */
+  --figma-w: 1170px;
+  --figma-h: 1128px;
+
+  /* Typography and spacing tuned for 320–430px */
+  --h1: 28px;
+  --h2: 16px;
+  --body: 14px;
+  --small: 12px;
+
+  --gap-lg: 20px;
+  --gap-md: 16px;
+  --gap-sm: 10px;
+}
+
+* { box-sizing: border-box; }
+html, body { height:100%; }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Root keeps safe mobile width and scroll area */
+#screen{
+  position: relative;
+  width: min(100vw, 430px);
+  margin: 0 auto;
+  background: var(--bg);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Base layer */
+.bg-base{ position:absolute; inset:0; background:var(--bg); }
+
+/* Decorative ellipses approximating large soft circles in YAML */
+.ellipse{ position:absolute; border-radius:50%; pointer-events:none; }
+.ellipse-1543{
+  width: 680px; height: 680px;
+  left: -260px; top: -240px;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+  opacity: .35;
+}
+.ellipse-1542{
+  width: 420px; height: 420px;
+  left: 140px; top: -30px;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+  opacity: .25;
+}
+
+/* Top bar */
+.topbar{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  z-index: 2;
+}
+.btn-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width: 44px; height: 44px;
+  border: 0; background: transparent; padding: 0; border-radius: 50%;
+}
+.btn-icon:focus{ outline: 2px solid #0003; outline-offset: 2px; }
+
+.topbar-right{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  gap: 12px;
+}
+.greeting{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+.search img{ display:block; width: 18px; height: 15px; }
+.cart{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-bag{ position: relative; width: 24px; height: 22px; display:grid; place-items:center; }
+.cart-badge{
+  position: absolute;
+  right: -4px; top: -6px;
+  width: 30px; height: 30px;
+  display:grid; place-items:center;
+}
+.cart-badge img{ width: 30px; height: 30px; display:block; }
+.cart-count{
+  position: absolute;
+  font-size: 11px; font-weight: 700; color: #1E222B;
+}
+
+/* Big title */
+.big-title{
+  padding: 6px 16px 0;
+}
+.big-title .title{
+  font-size: var(--h1);
+  line-height: 1.15;
+  margin: 6px 0 0;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.big-title .break{ display:block; }
+
+/* Tabs row (Frame 8686) */
+.tabs{
+  display:flex;
+  gap: 10px;
+  padding: 16px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tab{
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 16px;
+  padding: 10px 14px;
+  background: #EFEFEF;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+}
+.tab.active{
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+/* Cards grid */
+.cards{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  padding: 6px 16px 90px; /* bottom padding to avoid tabbar overlap */
+}
+.card{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 8px 12px;
+  padding: 14px;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-1);
+}
+.card-thumb{
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  position: relative;
+  width: 186px; /* match YAML major card thumb width ratio */
+  height: 204px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.thumb-bg{ position:absolute; inset:0; }
+.tone-a{ background: #E7F3FF; }
+.tone-b{ background: #FDEEE8; }
+.tone-c{ background: #E6F7F1; }
+.thumb-img{
+  position:absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%; height: auto;
+}
+
+.card-copy{
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  align-self: end;
+  max-width: 170px;
+}
+.card-title{
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+.card-subtitle{
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.card-price{
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 4px;
+}
+.price-label{
+  font-size: 11px; color: var(--muted);
+}
+.price-amount{
+  font-size: 14px; font-weight: 800; color:#111827;
+}
+
+/* Bottom tab bar */
+.tabbar{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 80px;
+  background: var(--surface);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -8px 22px rgba(0,0,0,0.08);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  padding: 0 10px;
+}
+.tabbar-item{
+  display:inline-flex; align-items:center; justify-content:center;
+  width: 100%; height: 48px;
+  border:0; background:transparent; border-radius: 12px;
+}
+.tabbar-item.current{
+  background: #F3F4F6;
+}
+.tabbar-item img{ display:block; }
+
+/* Faint overlay to help manual pixel verification (off by default) */
+.root-scan{
+  position:absolute; inset:0;
+  pointer-events:none;
+  opacity: 0.0; /* set to 0.02 locally to compare */
+}
+.root-scan img{ width:100%; height:auto; display:block; }
+
+/* Focus-visible for keyboard users */
+html.using-keyboard .focusable:focus{
+  outline: 3px solid rgba(0,0,0,0.2);
+  outline-offset: 2px;
+}
+
+/* Responsive refinements within 320–430px */
+@media (max-width: 360px){
+  .big-title .title{ font-size: 26px; }
+  .tab{ font-size: 13px; padding: 8px 12px; }
+  .card-title{ font-size: 15px; }
+  .price-amount{ font-size: 13px; }
+}

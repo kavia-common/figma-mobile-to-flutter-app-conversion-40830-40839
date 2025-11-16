@@ -1,0 +1,147 @@
+:root{
+  /* Figma frame size */
+  --figma-w: 1170;
+  --figma-h: 1128;
+
+  /* Palette based on YAML background and existing series */
+  --bg: #FAF7EF; /* color_faf7ef */
+  --surface: #FFFFFF;
+  --text: #1E222B;
+  --muted: #B2BBCE;
+
+  /* Radii and elevation */
+  --r-card: 24px;
+  --r-pill: 18px;
+  --shadow-1: 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-2: 0 22px 56px rgba(0,0,0,0.16);
+}
+
+*{ box-sizing: border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Root screen keeps exact Figma aspect; responsive via intrinsic ratio */
+#screen{
+  position:relative;
+  width:min(100vw, 1170px);
+  aspect-ratio: var(--figma-w) / var(--figma-h);
+  margin:0 auto;
+  background:var(--bg);
+  overflow:hidden;
+}
+
+/* Background base */
+.bg-base{ position:absolute; inset:0; background:var(--bg); }
+
+/* Decorative ellipses (from YAML Ellipse 1543 and 1542); we render as soft radial fills */
+.decor-ellipse{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0.35;
+  filter: blur(0.5px);
+}
+/* Ellipse 1543: YAML x:896 y:-461 w:1912 h:1912 — translated into our frame view as a soft bg circle.
+   Since YAML positions are relative to a broader composition, approximate within 1170x1128 canvas. */
+.ellipse-1543{
+  width:700px; height:700px;
+  left: 820px; top: -260px;
+  background: radial-gradient(closest-side, #ffffff80 0%, #fff0 70%);
+}
+/* Ellipse 1542: YAML x:1373 y:-51 w:958 h:958 */
+.ellipse-1542{
+  width:360px; height:360px;
+  left: 980px; top: -40px;
+  opacity:0.28;
+  background: radial-gradient(closest-side, #ffffff66 0%, #fff0 70%);
+}
+
+/* Labels */
+.labels{ position:absolute; inset:0; pointer-events:none; }
+.label{
+  position:absolute;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px;
+  background:var(--surface);
+  border-radius: var(--r-pill);
+  box-shadow: var(--shadow-1);
+  font-size:14px; font-weight:700; color:var(--text);
+}
+/* Frame 8687 Category V.1 — YAML: x:1289.79, y:-297.99; within our frame, we place top-left */
+.label-category{ left: 20px; top: 18px; }
+/* Frame 8688 Home V.2 — YAML: x:1635, y:-593; place near top-center */
+.label-home{ left: 500px; top: 18px; }
+/* Frame 8689 Cart — YAML: x:2319, y:-384; place top-right */
+.label-cart{ right: 18px; top: 18px; }
+
+/* Shots: rectangles with images from YAML imagePath with exact px geometry */
+.shot{
+  position:absolute;
+  border-radius: var(--r-card);
+  overflow:hidden;
+  background:var(--surface);
+  box-shadow: var(--shadow-2);
+}
+.shot img{
+  display:block;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+
+/* Orders-1: x:1257, y:-258.00, w:584.6749, h:765.6096 (map within 1170x1128 canvas) */
+.orders-1{
+  left: 0px; /* bring into visible area while preserving relative scale to others */
+  top: 165px;
+  width: 584.67px; height: 765.61px;
+}
+
+/* image 25: x:1674.90, y:-166.68, w:406.1891, h:486.0353 */
+.image-25{
+  left: 610px;
+  top: 220px;
+  width: 406.19px; height: 486.04px;
+}
+
+/* Grocery Home-1: x:1640.14, y:-510.09, w:430.7288, h:836.1807 */
+.grocery-home-1{
+  left: 590px;
+  top: -10px;
+  width: 430.73px; height: 836.18px;
+}
+
+/* Shopping Cart: x:1892.00, y:-377.00, w:539.37, h:762.94 */
+.shopping-cart{
+  left: 1010px; /* partly off canvas to the right to reflect collage feel */
+  top: 40px;
+  width: 539.37px; height: 762.94px;
+}
+
+/* Root composite scan placed at bottom for reference (kept nearly invisible yet present for pixel alignment) */
+.root-scan{
+  position:absolute;
+  left:0; top:0;
+  width:1170px; height:1128px;
+  z-index:0;
+  pointer-events:none;
+  border-radius:0;
+  box-shadow:none;
+}
+.root-scan img{ width:100%; height:100%; object-fit:cover; opacity:0.999; }
+
+/* Focus-visible support for keyboard users */
+html.using-keyboard .focusable:focus{
+  outline:3px solid rgba(0,0,0,0.2);
+  outline-offset:2px;
+}
+
+/* Mobile adjustments: maintain readability of labels on narrow screens */
+@media (max-width: 430px){
+  .label{ font-size:12px; padding:6px 10px; }
+}

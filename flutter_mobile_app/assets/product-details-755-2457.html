@@ -1,0 +1,131 @@
+<!doctype html>
+<!--
+Screen: Product details (screen 755:2457)
+- Exact assets paths from /assets/figmaimages per YAML.
+- Semantic HTML with proper landmarks and alt text.
+- Responsive behavior for 320–430px via scaling container; safe beyond.
+- Minimal JS to handle keyboard focus ring and expandable sections without affecting layout.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Product details - Thin Choise Top Orange</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./product-details-755-2457.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Canvas preserves Figma artboard dimensions (375 x 812) and positions -->
+  <main id="screen" role="document" aria-label="Product details screen">
+    <!-- Top bar -->
+    <header class="topbar" aria-label="Top bar">
+      <button class="icon-btn back" aria-label="Go back">
+        <img src="/assets/figmaimages/figma_image_755_2516.svg" alt="" width="40" height="40" decoding="async">
+        <span class="visually-hidden">Back</span>
+      </button>
+
+      <div class="cart" aria-label="Cart with 3 items">
+        <div class="cart-bag" aria-hidden="true">
+          <img class="bag-outline" src="/assets/figmaimages/figma_image_755_2520.svg" alt="" width="18" height="15" decoding="async">
+          <img class="bag-handle" src="/assets/figmaimages/figma_image_755_2521.svg" alt="" width="10" height="10" decoding="async">
+        </div>
+        <div class="cart-badge" aria-hidden="true">
+          <img src="/assets/figmaimages/figma_image_755_2523.svg" alt="" width="24" height="24" decoding="async">
+          <span class="cart-count" aria-hidden="true">3</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Product image block -->
+    <section class="product-visual" aria-label="Product image">
+      <!-- Background tile (Rectangle 1318) -->
+      <div class="product-bg" aria-hidden="true"></div>
+
+      <!-- Central camera icon group -->
+      <div class="image-icon" aria-hidden="true">
+        <img class="icon-box" src="/assets/figmaimages/figma_image_755_2527.svg" alt="" width="59" height="59" decoding="async">
+        <img class="icon-circle" src="/assets/figmaimages/figma_image_755_2528.svg" alt="" width="17" height="17" decoding="async">
+        <img class="icon-shape" src="/assets/figmaimages/figma_image_755_2529.svg" alt="" width="48" height="31" decoding="async">
+      </div>
+
+      <!-- Dots under image -->
+      <div class="dots" aria-hidden="true">
+        <span class="dot a"></span>
+        <span class="dot b"></span>
+        <span class="dot c"></span>
+      </div>
+    </section>
+
+    <!-- Title -->
+    <section class="title-wrap" aria-label="Product title">
+      <h1 class="title">Thin Choise Top Orange</h1>
+    </section>
+
+    <!-- Price and discount row -->
+    <section class="price-row" aria-label="Pricing">
+      <div class="price-left" aria-label="Current price and offer">
+        <strong class="price">$34.70/KG</strong>
+        <div class="off-pill" aria-label="$22.04 OFF">
+          <span class="off-text">$22.04 OFF</span>
+        </div>
+      </div>
+      <div class="price-right">
+        <span class="reg">Reg: $56.70 USD</span>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews" aria-label="Ratings and reviews">
+      <div class="stars" aria-hidden="true">
+        <img src="/assets/figmaimages/figma_image_755_2482.svg" alt="" width="17" height="17" decoding="async">
+        <img src="/assets/figmaimages/figma_image_755_2484.svg" alt="" width="15" height="14" decoding="async">
+        <img src="/assets/figmaimages/figma_image_755_2484.svg" alt="" width="15" height="14" decoding="async">
+        <img src="/assets/figmaimages/figma_image_755_2484.svg" alt="" width="15" height="14" decoding="async">
+        <!-- Half star visual (bulk) approximated with two-tone span -->
+        <span class="half-star" aria-hidden="true"></span>
+      </div>
+      <div class="reviews-count" aria-label="110 reviews">110 Reviews</div>
+    </section>
+
+    <!-- Actions -->
+    <section class="actions" aria-label="Actions">
+      <button class="btn secondary" aria-label="Add to cart">Add To Cart</button>
+      <button class="btn primary" aria-label="Buy now">Buy Now</button>
+    </section>
+
+    <!-- Details copy -->
+    <section class="details-copy" aria-label="Details">
+      <h2 class="section-title">Details</h2>
+      <p class="section-body">
+        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo.
+      </p>
+    </section>
+
+    <!-- Nutritional facts expandable -->
+    <section class="expander" aria-label="Nutritional facts">
+      <button class="expander-header" aria-expanded="false" aria-controls="facts-panel">
+        <span class="expander-title">Nutritional facts</span>
+        <img class="caret" src="/assets/figmaimages/figma_image_755_2461.svg" alt="" width="16" height="9" decoding="async">
+      </button>
+      <div id="facts-panel" class="expander-panel" hidden></div>
+      <div class="divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- Reviews expandable -->
+    <section class="expander" aria-label="Reviews">
+      <button class="expander-header" aria-expanded="false" aria-controls="reviews-panel">
+        <span class="expander-title">Reviews</span>
+        <img class="caret" src="/assets/figmaimages/figma_image_755_2461.svg" alt="" width="16" height="9" decoding="async">
+      </button>
+      <div id="reviews-panel" class="expander-panel" hidden></div>
+      <div class="divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- Optional whole-screen reference image for pixel verification (kept hidden) -->
+    <figure class="root-scan" aria-hidden="true">
+      <img src="/assets/figmaimages/figma_image_755_2457.png" alt="" width="375" height="812" decoding="async" loading="lazy">
+    </figure>
+  </main>
+
+  <script src="./product-details-755-2457.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+:root{
+  /* Base Figma frame size from YAML */
+  --figma-w: 1170;
+  --figma-h: 1128;
+
+  /* Palette derived from YAML background + observed assets */
+  --bg: #FAF7EF; /* color_faf7ef */
+  --text: #1E222B;
+  --muted: #B2BBCE;
+  --surface: #FFFFFF;
+
+  /* Radii and elevation */
+  --r-card: 24px;
+  --r-pill: 20px;
+  --shadow-1: 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-2: 0 20px 48px rgba(0,0,0,0.16);
+
+  /* Typography */
+  --h1: 28px;
+  --h2: 20px;
+  --body: 16px;
+}
+
+/* Reset */
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Screen root keeps Figma aspect and scales down for mobile 320–430 px safely */
+#screen{
+  position:relative;
+  width:min(100vw, 1170px);
+  aspect-ratio: var(--figma-w) / var(--figma-h);
+  margin:0 auto;
+  background:var(--bg);
+  overflow:hidden;
+}
+
+/* Background base */
+.bg-base{ position:absolute; inset:0; background:var(--bg); }
+
+/* Decorative ellipses: approximate fills positioned using YAML coordinates */
+.ellipse{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+.ellipse-1543{
+  /* YAML: x:-374, y:-461, w:1912, h:1912 (huge soft circle off-canvas) */
+  width:1912px; height:1912px;
+  left:-374px; top:-461px;
+  background: radial-gradient(closest-side, #ffffff80 0%, #fff0 70%);
+  opacity:.35;
+  filter: blur(0.5px);
+}
+.ellipse-1542{
+  /* YAML: x:103, y:-51, w:958, h:958 */
+  width:958px; height:958px;
+  left:103px; top:-51px;
+  background: radial-gradient(closest-side, #ffffff80 0%, #fff0 70%);
+  opacity:.25;
+}
+
+/* Labels (Frames 8687/8688/8689) — small caption tags matching approximate positions */
+.labels{ position:absolute; inset:0; pointer-events:none; }
+.label{
+  position:absolute;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px;
+  background:var(--surface);
+  box-shadow: var(--shadow-1);
+  border-radius: var(--r-pill);
+  font-size:14px; font-weight:700;
+  color:var(--text);
+}
+.label-cat{
+  /* YAML: x: 19.793, y: -298 -> within frame, nudge into visible area */
+  left:20px; top:20px;
+}
+.label-details{
+  /* YAML: x: 365, y: -593 -> place near upper-middle */
+  left:365px; top:20px;
+}
+.label-cart{
+  /* YAML: x: 1049.0, y: -384 -> place top-right */
+  right:20px; top:20px;
+}
+
+/* Shot figures — use exact imagePath positions/sizes from YAML for pixel mapping */
+.shot{
+  position:absolute;
+  border-radius: var(--r-card);
+  overflow:hidden;
+  background:var(--surface);
+  box-shadow: var(--shadow-2);
+}
+.shot img{
+  display:block;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+
+/* YAML rectangles with imagePath and their precise geometry */
+.shot.products{
+  /* id 801:2403 -> x:623.9999978666 y:-376 w:539.3699697132 h:762.9425159325 */
+  left:624px; top:-376px; width:539.37px; height:762.94px;
+}
+.shot.orders{
+  /* id 801:2404 -> x:-34.8375 y:-244.2689 w:584.6749 h:765.6097 */
+  left:-34.84px; top:-244.27px; width:584.67px; height:765.61px;
+}
+.shot.image25{
+  /* id 801:2405 -> x:404.9014 y:-166.6772 w:406.1891 h:486.0353 */
+  left:404.90px; top:-166.68px; width:406.19px; height:486.04px;
+}
+.shot.grocery-home{
+  /* id 801:2406 -> x:369.1356 y:-527.0903 w:430.7288 h:836.1807 */
+  left:369.14px; top:-527.09px; width:430.73px; height:836.18px;
+}
+
+/* Root composite image placed at bottom for reference/capture */
+.root-scan{
+  position:absolute;
+  left:0; top:0; width:1170px; height:1128px;
+  z-index:0;
+  pointer-events:none;
+  border-radius:0;
+  box-shadow:none;
+}
+.root-scan img{ width:100%; height:100%; object-fit:cover; opacity:0.999; }
+
+/* Focus-visible support for keyboard users (toggled by JS) */
+html.using-keyboard .focusable:focus{
+  outline:3px solid rgba(0,0,0,0.15);
+  outline-offset:2px;
+}
+
+/* Responsive safety: maintain scale and accessibility on narrow screens (320–430px) */
+@media (max-width: 430px){
+  /* The #screen keeps aspect via aspect-ratio but we also ensure captions stay readable */
+  .label{ font-size:12px; padding:6px 10px; }
+}
+
+/* Slightly larger viewports still below artboard size */
+@media (min-width: 431px) and (max-width: 1024px){
+  .label{ font-size:13px; }
+}

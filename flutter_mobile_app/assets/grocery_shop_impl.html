@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Grocery Shop Mobile App Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --bg-hero:#FFC83A;
+      --text-primary:#1C1C1C;
+      --text-secondary:#5B5B5B;
+      --white:#FFFFFF;
+      --nav-blue:#2F62F1;
+      --accent-green:#21C17A;
+      --accent-orange:#FF8A00;
+      --badge-gray:#F3F4F6;
+
+      --radius-card:32px;
+      --radius-pill:26px;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:"Helvetica Neue", Arial, sans-serif;
+      color:var(--text-primary);
+      background:var(--bg-hero);
+    }
+    .page{
+      width:2340px;
+      height:1560px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 780px 1fr;
+      overflow:hidden;
+      position:relative;
+    }
+    /* Left hero column */
+    .hero{
+      padding:64px 72px;
+      display:flex;
+      flex-direction:column;
+      gap:48px;
+      z-index:2;
+    }
+    .hero-header{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .title{
+      font-weight:800;
+      font-size:88px;
+      line-height:1.1;
+      margin:0;
+    }
+    .subtitle{
+      font-weight:600;
+      font-size:40px;
+      line-height:1.2;
+      margin:0;
+      color:var(--text-primary);
+    }
+    .features{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+    .feature{
+      height:95px;
+      display:flex;
+      align-items:center;
+      background:rgba(255,255,255,0.22);
+      backdrop-filter:saturate(100%) blur(0.0001px); /* visual placeholder for style_3 */
+      border-radius:18px;
+      padding:0 24px;
+    }
+    .feature span{
+      font-weight:700;
+      font-size:38px;
+      line-height:1.2;
+    }
+    .badge-row{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      height:182px;
+    }
+    .badge-circle{
+      width:182px; height:182px; border-radius:50%;
+      background:var(--white);
+      position:relative;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .badge-circle .figma{
+      width:76.9px; height:117.9px;
+      background: no-repeat center / contain url("/assets/figmaimages/figma_image_33438_318.svg");
+    }
+    .badge-label{
+      width:467px; height:135px;
+      background:var(--white);
+      border-radius:var(--radius-pill);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 24px rgba(0,0,0,0.08);
+    }
+    .badge-label span{
+      font-size:36px; font-weight:600;
+    }
+
+    /* Right collage area */
+    .collage{
+      position:relative;
+      overflow:hidden;
+    }
+    .collage-inner{
+      position:absolute;
+      left:0; top:0;
+      width:2340px; height:1560px;
+      transform-origin:0 0;
+    }
+    .shot{
+      position:absolute;
+      border-radius:var(--radius-card);
+      box-shadow:0 30px 80px rgba(0,0,0,0.18);
+      overflow:hidden;
+      background:#fff;
+    }
+    .shot img{ display:block; width:100%; height:100%; object-fit:cover; }
+
+    /* Exact placements based on YAML coordinates */
+    .shot.categories   { left:-571px; top:-376.396px; width:571.563px; height:1010.455px; }
+    .shot.orders       { left:-154px; top:-985.999px; width:570.898px; height:1009.278px; }
+    .shot.groceryhome  { left:381px; top:-790.999px; width:570.898px; height:1009.278px; }
+    .shot.product1     { left:-4px; top:24px; width:570.898px; height:1009.278px; }
+    .shot.cart-offer   { left:531px; top:207.999px; width:570.898px; height:1009.278px; }
+    .shot.track-order  { left:930px; top:-520.999px; width:570.898px; height:1009.278px; }
+
+    /* Decorative smaller rectangles (optional) */
+    .decor{ position:absolute; border-radius:24px; background:#EDEDED; opacity:.35; }
+
+    /* Responsive scaling for narrower viewports */
+    @media (max-width: 2340px){
+      .page{
+        transform: scale(calc((100vw) / 2340));
+        transform-origin: top left;
+        height: calc(1560px * (100vw / 2340));
+      }
+      html, body { height:auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero" aria-label="Hero introduction">
+      <div class="hero-header">
+        <h1 class="title">Grocery Shop</h1>
+        <p class="subtitle">Mobile App UI Kit</p>
+      </div>
+      <div class="features" role="list">
+        <div class="feature" role="listitem"><span>High Quality</span></div>
+        <div class="feature" role="listitem"><span>Organized layer</span></div>
+        <div class="feature" role="listitem"><span>Full Customizable</span></div>
+        <div class="feature" role="listitem"><span>Styleguide</span></div>
+      </div>
+      <div class="badge-row">
+        <div class="badge-circle" aria-hidden="true">
+          <div class="figma" title="Figma logo"></div>
+        </div>
+        <div class="badge-label"><span>16 Screens</span></div>
+      </div>
+    </section>
+
+    <section class="collage" aria-label="Grocery Shop app screens collage">
+      <div class="collage-inner">
+        <figure class="shot categories">
+          <img src="/assets/figmaimages/figma_image_33438_311.png" alt="">
+        </figure>
+        <figure class="shot orders">
+          <img src="/assets/figmaimages/figma_image_33438_323.png" alt="">
+        </figure>
+        <figure class="shot groceryhome">
+          <img src="/assets/figmaimages/figma_image_33438_324.png" alt="">
+        </figure>
+        <figure class="shot product1">
+          <img src="/assets/figmaimages/figma_image_33438_325.png" alt="">
+        </figure>
+        <figure class="shot cart-offer">
+          <img src="/assets/figmaimages/figma_image_33438_300.png" alt="">
+        </figure>
+        <figure class="shot track-order">
+          <img src="/assets/figmaimages/figma_image_33438_308.png" alt="">
+        </figure>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

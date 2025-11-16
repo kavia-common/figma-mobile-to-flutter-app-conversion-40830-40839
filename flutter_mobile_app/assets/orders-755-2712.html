@@ -1,0 +1,126 @@
+<!doctype html>
+<!--
+Orders (screen 755:2712)
+- Pixel-accurate composition based on YAML and PNG under /assets/figmaimages/figma_image_755_2712.png.
+- Semantic landmarks (header/main), proper alt texts, minimal ARIA used only when necessary.
+- Mobile responsive (320–430px) with safe scaling for larger widths; preserves 375x812 artboard proportions.
+- All images reference /assets/figmaimages/ exactly as specified in YAML; explicit width/height and lazy loading.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Orders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./orders-755-2712.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Screen wrapper sized to 375x812 and responsive via CSS scaler -->
+  <div id="screen" role="document" aria-label="Orders screen">
+    <!-- Top bar -->
+    <header class="topbar" aria-label="Top bar">
+      <div class="topbar-left" aria-hidden="true">
+        <!-- Circular background per YAML (Ellipse 134) -->
+        <img src="/assets/figmaimages/figma_image_755_2726.svg" alt="" width="40" height="40" decoding="async">
+        <!-- Back chevron (Fill 4) approximated with decorative span to avoid missing asset -->
+        <span class="back-icon" aria-hidden="true"></span>
+      </div>
+      <h1 class="title">Orders</h1>
+    </header>
+
+    <!-- Tabs: Current / Past -->
+    <nav class="tabs" aria-label="Order tabs">
+      <button class="tab current" aria-current="page">Current</button>
+      <button class="tab">Past</button>
+    </nav>
+
+    <!-- Divider line -->
+    <hr class="divider" aria-hidden="true">
+
+    <main class="orders" aria-label="Orders list">
+      <!-- Order block 1 -->
+      <article class="order" aria-label="Fresh Orange, price $7.90, ID #765433">
+        <div class="order-head">
+          <div class="thumb" aria-hidden="true">
+            <!-- Group icon (vector box with small detail + wave) -->
+            <img class="thumb-box" src="/assets/figmaimages/figma_image_755_2856.svg" alt="" width="25" height="25" decoding="async" loading="lazy">
+            <img class="thumb-wave" src="/assets/figmaimages/figma_image_755_2858.svg" alt="" width="20" height="13" decoding="async" loading="lazy">
+          </div>
+          <div class="order-meta">
+            <div class="order-title">Fresh Orange</div>
+            <div class="order-price">$7.90</div>
+          </div>
+          <div class="order-id" aria-label="Order ID">ID: #765433</div>
+        </div>
+
+        <!-- Rider row -->
+        <div class="rider">
+          <!-- Avatar (svg ring) -->
+          <img class="avatar" src="/assets/figmaimages/figma_image_755_2731.svg" alt="Rider avatar" width="39" height="39" decoding="async" loading="lazy">
+          <div class="rider-text">Meet our rider, Rakib</div>
+          <!-- Note icon -->
+          <div class="info-icon" aria-hidden="true">
+            <span class="icon-stack">
+              <span class="icon-bg"></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Status text -->
+        <h2 class="status">Your Oranges are on the way</h2>
+
+        <!-- Track button -->
+        <div class="actions">
+          <button class="btn primary" type="button" aria-label="Track order (Fresh Orange)">Track Order</button>
+        </div>
+      </article>
+
+      <!-- Order block 2 -->
+      <article class="order" aria-label="Big Fishes, price $120, ID #765433">
+        <div class="order-head">
+          <div class="thumb" aria-hidden="true">
+            <!-- For second item, same box/wave style (no explicit assets provided in YAML for vectors 2861–2863) -->
+            <img class="thumb-box" src="/assets/figmaimages/figma_image_755_2856.svg" alt="" width="25" height="25" decoding="async" loading="lazy">
+            <img class="thumb-wave" src="/assets/figmaimages/figma_image_755_2858.svg" alt="" width="20" height="13" decoding="async" loading="lazy">
+          </div>
+          <div class="order-meta">
+            <div class="order-title">Big Fishes</div>
+            <div class="order-price">$120</div>
+          </div>
+          <div class="order-id" aria-label="Order ID">ID: #765433</div>
+        </div>
+
+        <!-- Rider row -->
+        <div class="rider">
+          <!-- Avatar group -->
+          <div class="avatar-stack" aria-hidden="true">
+            <img class="avatar-bg" src="/assets/figmaimages/figma_image_755_2735.svg" alt="" width="48" height="48" decoding="async" loading="lazy">
+            <img class="avatar" src="/assets/figmaimages/figma_image_755_2734.png" alt="Rider avatar" width="39" height="39" decoding="async" loading="lazy">
+          </div>
+          <div class="rider-text">Meet our rider, Sakib</div>
+          <!-- Info icon (second) -->
+          <div class="info-icon" aria-hidden="true">
+            <span class="icon-stack">
+              <span class="icon-bg"></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Status text -->
+        <h2 class="status">Your Fishes are on the way</h2>
+
+        <!-- Track button -->
+        <div class="actions">
+          <button class="btn primary" type="button" aria-label="Track order (Big Fishes)">Track Order</button>
+        </div>
+      </article>
+    </main>
+
+    <!-- Optional full reference for pixel validation (kept transparent via CSS) -->
+    <figure class="root-scan" aria-hidden="true">
+      <img src="/assets/figmaimages/figma_image_755_2712.png" alt="" width="375" height="812" decoding="async" loading="lazy">
+    </figure>
+  </div>
+
+  <script src="./orders-755-2712.js" defer></script>
+</body>
+</html>

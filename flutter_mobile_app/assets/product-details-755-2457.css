@@ -1,0 +1,238 @@
+:root{
+  /* Design tokens derived from YAML + visual */
+  --figma-w: 375px;
+  --figma-h: 812px;
+
+  --bg: #ffffff; /* color_ffffff */
+  --text: #1E222B;
+  --muted: #B2BBCE;
+  --accent: #F9B023;
+  --primary: #2A4BA0;
+  --surface: #FFFFFF;
+
+  --r-lg: 24px;
+  --r-md: 18px;
+  --r-pill: 999px;
+
+  --shadow-1: 0 8px 18px rgba(0,0,0,0.08);
+  --shadow-2: 0 16px 40px rgba(0,0,0,0.15);
+
+  --h1: 26px;
+  --h2: 18px;
+  --body: 14px;
+
+  --gap-lg: 24px;
+  --gap-md: 16px;
+  --gap-sm: 10px;
+}
+
+/* Reset and base */
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Screen canvas with responsive scaling for 320–430px */
+#screen{
+  position: relative;
+  width: min(100vw, 430px);
+  max-width: 430px;
+  margin: 0 auto;
+  background: var(--bg);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 24px 28px 24px;
+}
+
+/* Utility: visually-hidden */
+.visually-hidden{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* Top bar */
+.topbar{
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding-top: 8px;
+}
+.icon-btn{
+  appearance:none; border:0; background:transparent; padding:0; display:inline-grid; place-items:center;
+  width:40px; height:40px; border-radius:50%;
+}
+.icon-btn:focus{ outline: 2px solid #0003; outline-offset: 2px; }
+
+.cart{
+  justify-self: end;
+  position: relative;
+  width: 24px; height: 24px;
+}
+.cart .bag-outline{ position:absolute; left: 3px; top: 6px; width:18px; height:15px; }
+.cart .bag-handle{ position:absolute; left: 7px; top: 0px; width:10px; height:10px; }
+.cart-badge{
+  position:absolute; right:-6px; top:-6px; width:24px; height:24px; display:grid; place-items:center;
+}
+.cart-badge img{ width:24px; height:24px; display:block; }
+.cart-count{
+  position:absolute; inset:0; display:grid; place-items:center;
+  font-size:12px; font-weight:700; color:#1E222B;
+}
+
+/* Product visual */
+.product-visual{
+  position: relative;
+  width: 100%;
+  height: 241px; /* from YAML Products Image grouping */
+  margin-top: 6px;
+  display: grid;
+  place-items: center;
+}
+.product-bg{
+  position:absolute; inset: 0;
+  border-radius: 24px;
+  background: #F8F9FB;
+}
+.image-icon{
+  position:absolute; width:68px; height:68px;
+  display:grid; place-items:center;
+}
+.image-icon .icon-box{ position:absolute; width:59px; height:59px; }
+.image-icon .icon-circle{ position:absolute; width:17px; height:17px; }
+.image-icon .icon-shape{ position:absolute; width:48px; height:31px; }
+
+.dots{
+  position:absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  display:flex; gap: 8px;
+}
+.dot{ display:block; height:0; border-top:2px solid #D1D5DB; }
+.dot.a{ width:19px; }
+.dot.b{ width:17px; }
+.dot.c{ width:17px; }
+
+/* Title */
+.title-wrap{ margin-top: 24px; }
+.title{
+  margin:0;
+  font-size: 22px; /* YAML shows height 52 for two-line potential; font size chosen for mobile readability */
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Price row */
+.price-row{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+.price-left{
+  display:flex; align-items:center; gap: 10px;
+}
+.price{
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+}
+.off-pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width: 84px; height: 24px;
+  padding: 4px 10px;
+  background: #FFF5E6;
+  color: var(--accent);
+  border: 1px dashed var(--accent);
+  border-radius: var(--r-pill);
+  font-size: 12px; font-weight: 700;
+}
+.off-text{ line-height:1; }
+
+.price-right{ justify-self: end; }
+.reg{ font-size: 12px; color: var(--muted); }
+
+/* Reviews */
+.reviews{
+  display:flex; align-items:center; gap: 12px;
+  margin-top: 14px;
+}
+.stars{
+  display:flex; align-items:center; gap: 6px; position:relative;
+}
+.half-star{
+  width: 16px; height: 16px; border-radius: 2px;
+  background: linear-gradient(90deg, #F9B023 0 50%, #E5E7EB 50% 100%);
+  box-shadow: inset 0 0 0 1px #F9B023;
+}
+.reviews-count{ font-size: 14px; color: #374151; }
+
+/* Actions */
+.actions{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  margin-top: 16px;
+}
+.btn{
+  appearance:none; border:0; padding: 16px; border-radius: 12px;
+  font-size: 16px; font-weight: 700; cursor:pointer;
+}
+.btn.secondary{
+  background: #0f172a08; color:#111827; border:1px solid #E5E7EB;
+}
+.btn.primary{
+  background: var(--accent); color: #ffffff;
+}
+
+/* Details copy */
+.details-copy{ margin-top: 18px; }
+.section-title{
+  font-size: 18px; margin: 0 0 8px 0; font-weight: 800;
+}
+.section-body{
+  margin:0;
+  font-size: 14px; line-height: 1.45; color: #4B5563;
+}
+
+/* Expanders */
+.expander{ margin-top: 16px; }
+.expander-header{
+  width:100%; display:flex; align-items:center; justify-content: space-between;
+  background: transparent; border:0; padding: 10px 0; cursor:pointer;
+  font-size: 16px; font-weight: 700; color: #111827;
+}
+.expander-header:focus{ outline: 2px solid #0003; outline-offset: 2px; }
+.expander-title{ pointer-events:none; }
+.caret{
+  width: 16px; height: 9px; transform: rotate(0deg);
+  transition: transform .2s ease;
+}
+.expander-header[aria-expanded="true"] .caret{
+  transform: rotate(180deg);
+}
+.expander-panel{
+  padding: 0 0 8px 0;
+  font-size: 14px; color:#4B5563;
+}
+.divider{
+  height: 2px; border-radius: 2px; background: #E5E7EB;
+}
+
+/* Root scan overlay for pixel verification (hidden by default) */
+.root-scan{
+  position:absolute; inset:0; pointer-events:none; opacity:0;
+}
+.root-scan img{ display:block; width:100%; height:auto; }
+
+/* Mobile fine-tuning within 320–430px */
+@media (max-width: 360px){
+  .title{ font-size: 20px; }
+  .price{ font-size: 17px; }
+  .off-pill{ font-size: 11px; }
+}

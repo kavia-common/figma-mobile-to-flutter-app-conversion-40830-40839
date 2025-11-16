@@ -1,0 +1,234 @@
+:root{
+  /* Tokens */
+  --figma-w: 375px;
+  --figma-h: 812px;
+
+  --bg: #FFFFFF;
+  --text: #1E222B;
+  --muted: #6B7280;
+  --hint: #B2BBCE;
+  --surface: #FFFFFF;
+  --accent: #2A4BA0;
+  --cta: #F9B023;
+
+  --r-soft: 12px;
+  --r-md: 16px;
+  --r-lg: 18px;
+
+  --shadow-1: 0 8px 18px rgba(0,0,0,0.08);
+  --shadow-2: 0 12px 26px rgba(0,0,0,0.12);
+
+  --gap-lg: 24px;
+  --gap-md: 16px;
+  --gap-sm: 12px;
+
+  --h1: 24px;
+  --h2: 18px;
+  --body: 14px;
+  --small: 12px;
+}
+
+/* Reset + base */
+*{ box-sizing:border-box; }
+html, body { height:100%; }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Root screen preserves 375x812 and scales to mobile widths gracefully */
+#screen{
+  position: relative;
+  width: min(100vw, 430px);
+  margin: 0 auto;
+  background: var(--bg);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Optional PNG overlay for visual validation */
+.root-scan{
+  position:absolute; inset:0;
+  pointer-events:none;
+  opacity: 0; /* set small value locally to compare */
+}
+.root-scan img{ width:100%; height:auto; display:block; }
+
+/* Topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  padding: 14px 16px 6px;
+}
+.topbar-left{
+  position:relative;
+  width: 40px; height: 40px;
+  display:grid; place-items:center;
+}
+.topbar-left img{ display:block; width:40px; height:40px; }
+.back-icon{
+  position:absolute;
+  width: 8px; height: 8px;
+  border-left: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+  transform: translate(-2px, 0) rotate(45deg);
+}
+.title{
+  margin:0;
+  font-weight:800;
+  font-size: var(--h1);
+}
+
+/* Tabs: Current / Past (Frame 8686) */
+.tabs{
+  display:flex;
+  gap: 10px;
+  padding: 10px 16px 6px;
+}
+.tab{
+  appearance:none;
+  border:0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  background: #EFEFEF;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+}
+.tab.current{
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+/* Divider line (Line 7) */
+.divider{
+  margin: 6px 20px 8px;
+  border: none;
+  height: 1px;
+  background: #E5E7EB;
+}
+
+/* Orders list */
+.orders{
+  display:flex;
+  flex-direction:column;
+  gap: 28px;
+  padding: 0 16px 32px;
+}
+
+/* Order card block */
+.order{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+
+/* Head: icon + title/price + id */
+.order-head{
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  align-items:center;
+  gap: 12px;
+}
+.thumb{
+  position:relative;
+  width:30px; height:30px;
+  display:grid; place-items:center;
+}
+.thumb-box{
+  position:absolute; left:2.5px; top:2.5px;
+  width:25px; height:25px; display:block;
+}
+.thumb-wave{
+  position:absolute; left:8px; top:14px;
+  width:20px; height:13px; display:block;
+}
+.order-meta{
+  display:flex;
+  flex-direction:column;
+  gap: 2px;
+}
+.order-title{
+  font-weight:700; font-size: 16px;
+}
+.order-price{
+  color:#111827; font-size: 14px;
+}
+.order-id{
+  color: var(--muted); font-size: 14px; white-space: nowrap;
+}
+
+/* Rider row */
+.rider{
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  align-items:center;
+  gap: 12px;
+}
+.avatar{ width:39px; height:39px; display:block; }
+.avatar-stack{
+  position:relative;
+  width:39px; height:39px;
+}
+.avatar-bg{ position:absolute; left:-4px; top:-4px; width:48px; height:48px; display:block; }
+.avatar-stack .avatar{ position:absolute; left:0; top:0; }
+.rider-text{ font-size: 14px; color: var(--text); }
+.info-icon{
+  position:relative;
+  width:30px; height:30px;
+}
+.icon-stack{ position:absolute; inset:0; display:grid; place-items:center; }
+.icon-bg{
+  width:25px; height:25px; border-radius:8px; background:#F3F4F6;
+}
+
+/* Status headline (multi-line per YAML) */
+.status{
+  margin: 0;
+  font-weight:800;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--text);
+  white-space: pre-line;
+}
+
+/* Actions */
+.actions{
+  display:flex;
+  justify-content:flex-end;
+}
+.btn{
+  appearance:none;
+  border:0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-weight:700;
+  font-size: 15px;
+  cursor:pointer;
+}
+.btn.primary{
+  background: var(--cta);
+  color: #fff;
+  box-shadow: var(--shadow-1);
+}
+
+/* Focus-visible for keyboard users only; toggled via js by adding class to html */
+html.using-keyboard .tab:focus,
+html.using-keyboard .btn:focus{
+  outline: 3px solid rgba(0,0,0,0.2);
+  outline-offset: 2px;
+}
+
+/* Fine tune within small widths */
+@media (max-width: 360px){
+  .order-title{ font-size: 15px; }
+  .order-price{ font-size: 13px; }
+  .order-id{ font-size: 13px; }
+  .status{ font-size: 17px; }
+}

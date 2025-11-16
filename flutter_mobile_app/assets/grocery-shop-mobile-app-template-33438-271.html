@@ -1,0 +1,84 @@
+<!doctype html>
+<!--
+Changelog (v2):
+- Accessibility: added semantic regions (header/main), role and aria-labels, alt text strategy, keyboard focus order.
+- Assets: ensured all image src use /assets/figmaimages/*. Added width/height, decoding="async", and loading="lazy" where non-critical.
+- Structure: preserved two-column layout, exact Figma coordinates via absolute positions in collage.
+- Responsiveness: maintained pixel-perfect canvas with transform scale; added breakpoints for mobile widths with proper stacking.
+- Performance: deferred JS, non-blocking; reduced DOM where possible; descriptive titles and labels retained.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Grocery Shop Mobile App Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./grocery-shop-mobile-app-template-33438-271.css" rel="stylesheet">
+</head>
+<body>
+  <div class="page" role="document" aria-label="Grocery Shop Mobile App Template canvas">
+    <header class="hero" aria-label="Hero introduction">
+      <div class="hero-header">
+        <h1 class="title">Grocery Shop</h1>
+        <p class="subtitle">Mobile App UI Kit</p>
+      </div>
+
+      <nav class="features" role="list" aria-label="Feature list">
+        <div class="feature" role="listitem" tabindex="0" aria-label="High Quality feature"><span>High Quality</span></div>
+        <div class="feature" role="listitem" tabindex="0" aria-label="Organized layer feature"><span>Organized layer</span></div>
+        <div class="feature" role="listitem" tabindex="0" aria-label="Full Customizable feature"><span>Full Customizable</span></div>
+        <div class="feature" role="listitem" tabindex="0" aria-label="Styleguide feature"><span>Styleguide</span></div>
+      </nav>
+
+      <div class="badge-row" aria-label="Screen count badge">
+        <div class="badge-circle" aria-hidden="true">
+          <img class="figma" src="/assets/figmaimages/figma_image_33438_318.svg" alt="" width="39" height="40" decoding="async">
+        </div>
+        <div class="badge-label" role="status" aria-live="polite"><span>16 Screens</span></div>
+      </div>
+    </header>
+
+    <main class="collage" aria-label="Grocery Shop app screens collage">
+      <div class="collage-inner" role="img" aria-label="Collage of app screens matching Figma composition">
+        <figure class="shot categories">
+          <img src="/assets/figmaimages/figma_image_33438_311.png"
+               alt=""
+               width="572" height="1010"
+               decoding="async" loading="lazy">
+        </figure>
+        <figure class="shot orders">
+          <img src="/assets/figmaimages/figma_image_33438_323.png"
+               alt=""
+               width="571" height="1009"
+               decoding="async" loading="lazy">
+        </figure>
+        <figure class="shot groceryhome">
+          <img src="/assets/figmaimages/figma_image_33438_324.png"
+               alt=""
+               width="571" height="1009"
+               decoding="async" loading="lazy">
+        </figure>
+        <figure class="shot product1">
+          <img src="/assets/figmaimages/figma_image_33438_325.png"
+               alt=""
+               width="571" height="1009"
+               decoding="async" loading="lazy">
+        </figure>
+        <figure class="shot cart-offer">
+          <img src="/assets/figmaimages/figma_image_33438_300.png"
+               alt=""
+               width="571" height="1009"
+               decoding="async" loading="lazy">
+        </figure>
+        <figure class="shot track-order">
+          <img src="/assets/figmaimages/figma_image_33438_308.png"
+               alt=""
+               width="571" height="1009"
+               decoding="async" loading="lazy">
+        </figure>
+      </div>
+    </main>
+  </div>
+
+  <script src="./grocery-shop-mobile-app-template-33438-271.js" defer></script>
+</body>
+</html>

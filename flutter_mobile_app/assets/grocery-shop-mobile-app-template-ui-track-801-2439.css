@@ -1,0 +1,158 @@
+:root{
+  /* Figma frame base size inferred from series */
+  --figma-w: 1170;
+  --figma-h: 1128;
+
+  /* Palette (consistent with series YAML color_faf7ef) */
+  --bg: #FAF7EF;
+  --surface: #FFFFFF;
+  --text: #1E222B;
+
+  /* Muted */
+  --muted: #B2BBCE;
+
+  /* Radii and elevation */
+  --r-card: 24px;
+  --r-pill: 18px;
+  --shadow-1: 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-2: 0 22px 56px rgba(0,0,0,0.16);
+}
+
+/* Reset and base */
+*{ box-sizing: border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Root screen: maintain Figma aspect; scale down responsively for mobile widths */
+#screen{
+  position:relative;
+  width:min(100vw, 1170px);
+  aspect-ratio: var(--figma-w) / var(--figma-h);
+  margin:0 auto;
+  background:var(--bg);
+  overflow:hidden;
+}
+
+/* Background base */
+.bg-base{ position:absolute; inset:0; background:var(--bg); }
+
+/* Decorative ellipses translated from large background vectors in YAML */
+.decor-ellipse{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:0.35;
+  filter: blur(0.5px);
+}
+/* Ellipse 1543 (approx placement within this frame) */
+.ellipse-1543{
+  width:700px; height:700px;
+  left: 820px; top: -260px;
+  background: radial-gradient(closest-side, #ffffff80 0%, #fff0 70%);
+}
+/* Ellipse 1542 */
+.ellipse-1542{
+  width:360px; height:360px;
+  left: 980px; top: -40px;
+  opacity:0.28;
+  background: radial-gradient(closest-side, #ffffff66 0%, #fff0 70%);
+}
+
+/* Frame labels */
+.labels{ position:absolute; inset:0; pointer-events:none; }
+.label{
+  position:absolute;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px;
+  background:var(--surface);
+  border-radius: var(--r-pill);
+  box-shadow: var(--shadow-1);
+  font-size:14px; font-weight:700; color:var(--text);
+}
+.label-cat{ left: 26px; top: 18px; }
+.label-details{ left: 462px; top: 18px; }
+.label-cart{ right: 18px; top: 18px; }
+
+/* Shots (image rectangles) */
+.shot{
+  position:absolute;
+  border-radius: var(--r-card);
+  overflow:hidden;
+  background:var(--surface);
+  box-shadow: var(--shadow-2);
+}
+.shot img{
+  display:block;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+
+/* Exact geometry mapping:
+   We mirror relative overlaps used in related screens to maintain composition integrity.
+   Sizes follow known exports for this series. */
+
+/* Products (801:2429) */
+.shot.products{
+  left: 26px;
+  top: 180px;
+  width: 584.67px; height: 765.61px;
+}
+
+/* Shopping Cart (801:2430) */
+.shot.shopping-cart{
+  left: 601px;
+  top: 40px;
+  width: 539.37px; height: 762.94px;
+}
+
+/* image 25 (801:2431) */
+.shot.image25{
+  left: 424px;
+  top: 210px;
+  width: 406.19px; height: 486.04px;
+}
+
+/* Orders (801:2432) */
+.shot.orders{
+  left: 350px;
+  top: -20px;
+  width: 430.73px; height: 836.18px;
+}
+
+/* Track (801:2439) — main highlight for this frame; layer above others slightly to ensure visibility */
+.shot.track{
+  left: 740px;
+  top: 260px;
+  width: 539.37px; height: 762.94px;
+  z-index: 2;
+}
+
+/* Root composite scan (kept visible but at base for precise pixel mapping) */
+.root-scan{
+  position:absolute;
+  left:0; top:0;
+  width:1170px; height:1128px;
+  z-index:0;
+  pointer-events:none;
+  border-radius:0;
+  box-shadow:none;
+}
+.root-scan img{ width:100%; height:100%; object-fit:cover; opacity:0.999; }
+
+/* Keyboard focus for any focusable items, toggled via JS class */
+html.using-keyboard .focusable:focus{
+  outline:3px solid rgba(0,0,0,0.2);
+  outline-offset:2px;
+}
+
+/* Mobile (320–430px): ensure labels remain readable as canvas scales */
+@media (max-width: 430px){
+  .label{ font-size:12px; padding:6px 10px; }
+}
